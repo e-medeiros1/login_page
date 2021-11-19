@@ -39,14 +39,27 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 height: 40,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  _controller.auth();
-                },
-                child: Text('Entrar', textScaleFactor: 1.3),
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.blue[400])),
+              ValueListenableBuilder<bool>(
+                valueListenable: _controller.inLoader,
+                builder: (_, inLoader, __) => inLoader
+                    ? CircularProgressIndicator()
+                    : ElevatedButton(
+                        onPressed: () {
+                          _controller.auth().then(
+                            (result) {
+                              if (result) {
+                                print('Login done! Welcome.');
+                              } else {
+                                print('Login failed! Check your password!');
+                              }
+                            },
+                          );
+                        },
+                        child: Text('Entrar', textScaleFactor: 1.3),
+                        style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.blue[400])),
+                      ),
               )
             ],
           ),
