@@ -13,25 +13,29 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.blue[100],
       body: Container(
-        padding: EdgeInsets.all(60),
+        padding: EdgeInsets.all(40),
         child: SizedBox(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              //Ícone
               Icon(
                 Icons.people,
                 size: 90,
-                color: Colors.blue,
+                color: Colors.blue[600],
               ),
               TextField(
+                style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
-                    label: Text('Login'), hintText: 'example@email.com'),
+                  label: Text('Email:'),
+                  hintText: 'example@email.com',
+                ),
                 onChanged: _controller.SetLogin,
               ),
               TextField(
                 decoration: InputDecoration(
-                  label: Text('Senha'),
+                  label: Text('Password:'),
                 ),
                 obscureText: true,
                 onChanged: _controller.SetSenha,
@@ -39,6 +43,7 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 height: 40,
               ),
+              //ElevatedButton com CircularProgressIndicator + backend de login
               ValueListenableBuilder<bool>(
                 valueListenable: _controller.inLoader,
                 builder: (_, inLoader, __) => inLoader
@@ -55,10 +60,13 @@ class LoginPage extends StatelessWidget {
                             },
                           );
                         },
-                        child: Text('Entrar', textScaleFactor: 1.3),
+                        child: Text('Entrar', textScaleFactor: 1.5),
                         style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.blue[400])),
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.blueAccent[600]),
+                          minimumSize:
+                              MaterialStateProperty.all(Size.fromHeight(45)),
+                        ),
                       ),
               )
             ],

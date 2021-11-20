@@ -10,7 +10,9 @@ class LoginController {
   SetSenha(String value) => _senha = value;
 
   Future<bool> auth() async {
+    inLoader.value = true;
     await Future.delayed(const Duration(seconds: 2));
+    inLoader.value = false;
 
     return _login == 'admin' && _senha == '123';
   }
