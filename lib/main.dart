@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:login/pages/home_page.dart';
 import 'package:login/pages/login_page.dart';
 import 'package:login/pages/splash_page.dart';
 
@@ -18,10 +19,11 @@ class MyApp extends StatelessWidget {
       title: 'Login',
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData.dark(),
-      initialRoute: '/LoginPage',
+      initialRoute: '/SplashPage',
       routes: {
         '/SplashPage': (_) => SplashPage(),
         '/LoginPage': (_) => LoginPage(),
+        '/HomePage': (_) => HomePage(),
       },
     );
   }

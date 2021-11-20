@@ -28,8 +28,8 @@ class LoginPage extends StatelessWidget {
               TextField(
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
-                  label: Text('Email:'),
-                  hintText: 'example@email.com',
+                  label: Text('Username:'),
+                  hintText: 'Admin',
                 ),
                 onChanged: _controller.SetLogin,
               ),
@@ -53,14 +53,20 @@ class LoginPage extends StatelessWidget {
                           _controller.auth().then(
                             (result) {
                               if (result) {
+                                Navigator.of(context)
+                                    .pushReplacementNamed('/HomePage');
                                 print('Login done! Welcome.');
                               } else {
+                                AlertDialog(
+                                  title: Text(
+                                      'User or password are wrong, try again!'),
+                                );
                                 print('Login failed! Check your password!');
                               }
                             },
                           );
                         },
-                        child: Text('Entrar', textScaleFactor: 1.5),
+                        child: Text('Sign in!', textScaleFactor: 1.5),
                         style: ButtonStyle(
                           backgroundColor:
                               MaterialStateProperty.all(Colors.blueAccent[600]),
