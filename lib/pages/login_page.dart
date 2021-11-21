@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
+import 'package:login/Components/custom_login_button.dart';
 import 'package:login/controllers/login_controller.dart';
 
 class LoginPage extends StatelessWidget {
@@ -44,37 +45,9 @@ class LoginPage extends StatelessWidget {
                 height: 40,
               ),
               //ElevatedButton com CircularProgressIndicator + backend de login
-              ValueListenableBuilder<bool>(
-                valueListenable: _controller.inLoader,
-                builder: (_, inLoader, __) => inLoader
-                    ? CircularProgressIndicator()
-                    : ElevatedButton(
-                        onPressed: () {
-                          _controller.auth().then(
-                            (result) {
-                              if (result) {
-                                Navigator.of(context)
-                                    .pushReplacementNamed('/HomePage');
-                                print('Login done! Welcome.');
-                              } else {
-                                AlertDialog(
-                                  title: Text(
-                                      'User or password are wrong, try again!'),
-                                );
-                                print('Login failed! Check your password!');
-                              }
-                            },
-                          );
-                        },
-                        child: Text('Sign in!', textScaleFactor: 1.5),
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.blueAccent[600]),
-                          minimumSize:
-                              MaterialStateProperty.all(Size.fromHeight(45)),
-                        ),
-                      ),
-              )
+              CustomLoginButton(
+                loginController: _controller,
+              ),
             ],
           ),
         ),
