@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Login',
       debugShowCheckedModeBanner: false,
-      darkTheme: ThemeData.dark(),
+      theme: ThemeData(primaryColor: Colors.blue[700]),
       initialRoute: '/SplashPage',
       routes: {
         '/SplashPage': (_) => SplashPage(),
