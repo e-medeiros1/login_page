@@ -13,10 +13,11 @@ Reformulado o botão da tela principal, uma opção setada de login(admin / 123)
 ![image](https://user-images.githubusercontent.com/73318684/142925757-67d042c7-e214-467f-8401-8c2549bc8e12.png)
 ![image](https://user-images.githubusercontent.com/73318684/142925794-efa9a8e5-b667-4d1b-ae6f-3c57054c42c1.png)   
 
-===
+## Versão 1.1.2
+Implantado o conceito de MOCK(Necessário fazer revisão para melhor entendimento)  
+![image](https://user-images.githubusercontent.com/73318684/143045071-6abc4f44-2428-4cd6-a4f2-2ec829691902.png)
 
-## Versão 1.2.1
-TO-DO Remover a HomePage de demonstração e consumir uma API
+
 
 
 
