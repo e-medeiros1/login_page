@@ -9,4 +9,8 @@ class PostModel {
   factory PostModel.fromJson(Map json) {
     return PostModel(json['userId'], json['id'], json['title'], json['body']);
   }
+  @override
+  String toString() {
+    return ('id: $id');
+  }
 }

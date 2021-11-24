@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:login/pages/details_page.dart';
 import 'package:login/pages/home_page.dart';
 import 'package:login/pages/login_page.dart';
 import 'package:login/pages/splash_page.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         '/SplashPage': (_) => SplashPage(),
         '/LoginPage': (_) => LoginPage(),
         '/HomePage': (_) => HomePage(),
+        '/DetailsPage': (_) => DetailsPage(),
       },
     );
   }
