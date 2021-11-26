@@ -38,6 +38,10 @@ Uma simples tela de login
 ![image](https://user-images.githubusercontent.com/73318684/143520994-5a3a1f7e-eb94-450f-b25e-54849a522b6d.png)
 ![image](https://user-images.githubusercontent.com/73318684/143521173-bd4e4780-cedd-4524-b306-c4e386cec4d3.png)
 
+### To-do: 
+- Melhorar design
+- Mudar esquema de cores
+
 
 
 
