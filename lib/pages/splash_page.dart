@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
-
+import 'package:login/services/prefs_services.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -14,8 +14,14 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2))
-        .then((_) => Navigator.of(context).pushReplacementNamed('/LoginPage'));
+
+    Future.wait([
+      PrefServices.isAuth(),
+      Future.delayed(Duration(seconds: 2)),
+    ]).then((value) => value[0]
+        ? Navigator.of(context).pushReplacementNamed('/HomePage')
+        : Navigator.of(context).pushReplacementNamed('/LoginPage'));
+
   }
 
   @override

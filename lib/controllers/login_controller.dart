@@ -1,5 +1,6 @@
 // ignore_for_file: unused_field, non_constant_identifier_names, avoid_print
 import 'package:flutter/widgets.dart';
+import 'package:login/services/prefs_services.dart';
 
 class LoginController {
   ValueNotifier<bool> inLoader = ValueNotifier<bool>(false);
@@ -14,6 +15,10 @@ class LoginController {
     await Future.delayed(const Duration(seconds: 2));
     inLoader.value = false;
 
-    return _login == 'admin' && _senha == '123';
+    if (_login == 'admin' && _senha == '123') {
+      PrefServices.save(_login!);
+      return true;
+    }
+    return false;
   }
 }

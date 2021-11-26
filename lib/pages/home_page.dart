@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:login/controllers/home_controller.dart';
 import 'package:login/models/post_model.dart';
 import 'package:login/repositories/home_repository_imp.dart';
+import 'package:login/services/prefs_services.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -25,6 +26,33 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text('Admin'),
+              accountEmail: Text('admin@email.com'),
+              currentAccountPicture: CircleAvatar(),
+            ),
+            ListTile(
+              title: Text('Home Page'),
+              trailing: Icon(Icons.supervised_user_circle),
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            ListTile(
+              title: Text('Logout'),
+              trailing: Icon(Icons.logout),
+              onTap: () {
+                PrefServices.logout();
+                Navigator.of(context)
+                    .pushNamedAndRemoveUntil('/LoginPage', (_) => true);
+              },
+            )
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: Center(child: Text('Home - Consumindo API')),
       ),
@@ -42,7 +70,8 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(fontSize: 20),
                 ),
                 onTap: () {
-                  Navigator.of(context).pushNamed('/DetailsPage');
+                  Navigator.of(context)
+                      .pushNamed('/DetailsPage', arguments: list[index]);
                 },
               ),
               separatorBuilder: (_, __) => Divider(),
